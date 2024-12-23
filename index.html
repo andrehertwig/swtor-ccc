@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="de" class="h-100">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+	
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<!--
+	<link rel="stylesheet" href="static/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<link href="static/select2.min.css" rel="stylesheet" />-->
+	<script src="js/constants.js"></script>
+	
+    <title>SWTOR - Crafting Material & Costs Calculator</title>
+	
+	<style>
+		@font-face{
+			font-family:SWEuro;font-weight:normal;font-style:normal;
+			src:url("static/fonts/SWEuroRegular.eot");
+			src:url("static/fonts/SWEuroRegular.eot?#iefix") format("embedded-opentype"),
+				url("static/fonts/SWEuroRegular.woff2") format("woff2"),
+				url("static/fonts/SWEuroRegular.woff") format("woff"),
+				url("static/fonts/SWEuroRegular.ttf") format("truetype"),
+				url("static/fonts/SWEuroRegular.svg#SWEuro") format("svg");
+		}
+		@font-face{
+			font-family:SWEuro;font-weight:normal;font-style:italic;
+			src:url("static//fonts/SWEuroItalic.eot");
+			src:url("static//fonts/SWEuroItalic.eot?#iefix") format("embedded-opentype"),
+				url("static//fonts/SWEuroItalic.woff2") format("woff2"),
+				url("static//fonts/SWEuroItalic.woff") format("woff"),
+				url("static//fonts/SWEuroItalic.ttf") format("truetype"),
+				url("static//fonts/SWEuroItalic.svg#SWEuroItalic") format("svg");
+		}
+		@font-face{
+			font-family:SWEuro;font-weight:200;font-style:normal;
+			src:url("static//fonts/SWEuroLight.eot");
+			src:url("static//fonts/SWEuroLight.eot?#iefix") format("embedded-opentype"),
+				url("static//fonts/SWEuroLight.woff2") format("woff2"),
+				url("static//fonts/SWEuroLight.woff") format("woff"),
+				url("static//fonts/SWEuroLight.ttf") format("truetype"),
+				url("static//fonts/SWEuroLight.svg#SWEuroLight") format("svg");
+		}
+		@font-face{
+			font-family:SWEuro;font-weight:bold;font-style:normal;
+			src:url("static//fonts/SWEuroBold.eot");
+			src:url("static//fonts/SWEuroBold.eot?#iefix") format("embedded-opentype"),
+				url("static//fonts/SWEuroBold.woff2") format("woff2"),
+				url("static//fonts/SWEuroBold.woff") format("woff"),
+				url("static//fonts/SWEuroBold.ttf") format("truetype"),
+				url("static//fonts/SWEuroBold.svg#SWEuroBold") format("svg");
+		}
+		@font-face{
+			font-family:SWEuro;font-weight:bold;font-style:italic;
+			src:url("static//fonts/SWEuroBoldItalic.eot");
+			src:url("static//fonts/SWEuroBoldItalic.eot?#iefix") format("embedded-opentype"),
+				url("static//fonts/SWEuroBoldItalic.woff2") format("woff2"),
+				url("static//fonts/SWEuroBoldItalic.woff") format("woff"),
+				url("static//fonts/SWEuroBoldItalic.ttf") format("truetype"),
+				url("static//fonts/SWEuroBoldItalic.svg#SWEuroBoldItalic") format("svg");
+		}
+		@font-face{
+			font-family:CustomTOR;font-weight:normal;font-style:normal;
+			src:url("static//fonts/CustomTOR.eot");
+			src:url("static//fonts/CustomTOR.eot?#iefix") format("embedded-opentype"),
+				url("static//fonts/CustomTOR.woff2") format("woff2"),
+				url("static//fonts/CustomTOR.woff") format("woff"),
+				url("static//fonts/CustomTOR.ttf") format("truetype");
+		}
+		body {
+			font-family: 'SWEuro';
+			font-weight: 200;
+			background-color: rgb(53, 53, 53);
+			color: burlywood;
+		}
+		table, tr, td {
+			color: burlywood;
+		}
+		.table thead tr th {
+			border-top: none;
+		}
+		th.price-action {
+			width: 50px;
+		}
+		hr {
+			background-color: coral;
+		}
+		.form-control {
+			background-color: rgb(183, 183, 183);
+			color: #6c5537;
+		}
+		optgroup {
+			background-color: rgb(53, 53, 53);
+			color: burlywood;
+		}
+		a {
+			color: burlywood;
+		}
+		div.headline {
+			border-bottom: 1px solid #e3e3e3;
+		}
+		div.headline div {
+			font-weight: bold;
+		}
+		.footertext {
+			display: block;
+			text-align: center;
+		}
+		.total {
+			font-family: 'SWEuro';
+			font-weight: bold;
+			font-style: italic;
+			color: #b98b1e;;
+		}
+		.credits {
+			font-family: 'SWEuro';
+			font-weight: normal;
+			font-style: normal;
+		}
+		.small-pic {
+			width: 20px;
+		}
+		.medium-pic {
+			width: 35px;
+		}
+		.text-right {
+			text-align: right;
+		}
+		.text-center {
+			text-align: center;
+		}
+		.btn-primary {
+			background-color: burlywood;
+			border-color: burlywood;
+			color: #6c5537;
+		}
+		.btn-primary:hover {
+			color: #6c5537;
+			background-color: coral;
+			border-color: coral;
+		}
+		.reset-price-btn {
+			margin-top: 2px;
+		}
+	</style>
+  </head>
+  <body class=" h-100">
+	<header>
+		<h1>SWTOR - Crafting Material &amp; Costs Calculator</h1>
+		<hr />
+	</header>
+	<main>
+		<div class="container">
+			<br />
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="caftableItem">Gegenstand wählen:</label>
+						<select class="form-control" id="caftableItem">
+							<option value="">Please select</option>
+						</select>
+					 </div>
+				</div>
+				<div class="col-sm-12">
+					<div id="selectedItemContent"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" id="price-modal" tabindex="-1">
+			<div class="modal-dialog">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title">Set custom price</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="customPrice">Custom price for: <span id="price_materialName"></span></label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="customPrice" aria-describedby="priceHelp">
+							<div class="input-group-append">
+								<span class="input-group-text">&curren;</span>
+							</div>
+						</div>
+						<small id="priceHelp" class="form-text text-muted">Set your custom price in Credits. Will be saved locally</small>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				  <button type="button" class="btn btn-primary" id="savePrice">Save changes</button>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</main>
+	<footer class="footer mt-auto py-3">
+		<div class="container">
+			<span class="text-muted footertext">&copy; 2020 - 2024 - no cookie information, because nothing will be tracked</span>
+		</div>
+	</footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+	<!--
+	<script src="static/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+     Option 1: jQuery and Bootstrap Bundle (includes Popper) 
+    
+    <script src="static/select2.min.js"></script>
+	-->
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+	
+	
+	<script src="data/materials.js"></script>
+	<script src="data/mat_arch.js"></script>
+	<script src="data/craftables_bio.js"></script>
+	<script src="data/craftables_kf.js"></script>
+	<script src="data/craftables_ct.js"></script>
+	<script src="data/craftables_synth.js"></script>
+	<script src="data/craftables_wb.js"></script>
+	<script src="data/craftables_rb.js"></script>
+	<script src="js/app.js"></script>
+
+  </body>
+</html>
