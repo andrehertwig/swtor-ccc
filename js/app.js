@@ -8,6 +8,8 @@ getPriceStore = () => {
 	return prices;
 }
 
+let recalculate = false;
+
 const allMaterials = [];
 class Material {
 	id;
@@ -195,7 +197,7 @@ class Craftable {
 	}
 	
 	calculateCraftCost = () => {
-		if (this.totalCosts) {
+		if (this.totalCosts && !recalculate) {
 			return this.totalCosts;
 		}
 		let cost = this.calculateMatCost();
@@ -266,6 +268,7 @@ $(caftableItemSelect).on('select2:select', function (e) {
 });
 */
 $(caftableItemSelect).on('change.select2', function (e) {
+	console.log('select event');
 	displayContent(this.value);
 });
 
@@ -311,8 +314,7 @@ saveMatPrice = function(id) {
 	const modal = $('#price-modal');
 
 	material.price = modal.find('#customPrice').val();
-	
-	resetCurrentTotalCosts();
+	recalculate = true;
 
 	modal.modal('hide');
 	$caftableItemSelect2.trigger('change');
@@ -321,16 +323,9 @@ saveMatPrice = function(id) {
 resetMatPrice = function(id) {
 	const material = allMaterials.filter(mat => mat.id == id)[0];
 	material.resetPrice();
-
-	resetCurrentTotalCosts();
+	recalculate = true;
 
 	$caftableItemSelect2.trigger('change');
-}
-
-resetCurrentTotalCosts = function() {
-	let currentCraftableId = $caftableItemSelect2.val();
-	const craftableItem = craftables.filter(craftable => craftable.id == currentCraftableId)[0];
-	craftableItem.totalCosts = null;
 }
 
 const nrFormatter = new Intl.NumberFormat();
@@ -442,6 +437,7 @@ const displayContent = (itemId) => {
 	materialList += `<p><small>HW = Handwerk</small></p>`;
 
 	selectedItemContent.innerHTML = headline + description + costs + receipe + components + materialList;
+	recalculate = false;
 }
 
 /*

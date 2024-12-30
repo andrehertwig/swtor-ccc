@@ -286,7 +286,7 @@ const materialsJSON = [{
 	"fixPrice": false,
 	"level": 11,
     "picture": "6_0_Conquest_Crafting_Material.png",
-	"places": ["Eroberung", "GHM"]
+	"places": ["Eroberung (früher)", "GHN"]
 },{
 	"id": "Legendäre Glut",
     "name": "Legendäre Glut",
@@ -295,7 +295,7 @@ const materialsJSON = [{
 	"fixPrice": false,
 	"level": 11,
     "picture": "Legendary_Scrap_6_0.png",
-	"places": ["Nitoo (Rep)",".... (Imp)", "Dekonstruktion (75er Gear)", "GHM", "Level 11 HW-Misionen", "PVP-Weekly"]
+	"places": ["Nitoo (Rep)",".... (Imp)", "Dekonstruktion (75er Gear)", "GHN", "Level 11 HW-Misionsendeckungen", "PVP-Weekly"]
 },{
 	"id": "Standard-Rekombinator",
     "name": "Standard-Rekombinator",
@@ -682,7 +682,7 @@ const materialsJSON = [{
 	"fixPrice": false,
 	"level": 11,
 	"picture": "6_0_Batteries_green.png",
-	"places": ["MM-Operationen", "GHM", "Nitoo (Rep)", "Datapad"]
+	"places": ["GHN", "Nitoo (Rep)", ".... (Imp)"]
 },{
 	"id": "RPM-13",
     "name": "RPM-13",
@@ -691,7 +691,7 @@ const materialsJSON = [{
 	"fixPrice": false,
 	"level": 11,
 	"picture": "6_0_Batteries_red.png",
-	"places": ["MM-Operationen", "GHM", "Nitoo (Rep)", "Datapad"]
+	"places": ["GHN", "Nitoo (Rep)", ".... (Imp)"]
 },{
 	"id": "Korrumpierter Bioprozessor",
     "name": "Korrumpierter Bioprozessor",

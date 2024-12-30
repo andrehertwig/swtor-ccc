@@ -204,7 +204,7 @@ const materials_arch_JSON = [{
 	"fixPrice": false,
 	"level": 11,
 	"picture": "Crystal_Scrap_6_0_green.png",
-	"places": ["Ondern", "Mek-Sha", "HW-Archäologie", "Jawa-Händer"]
+	"places": ["HW-Schatzsuche", "Jawa-Händer"]
 },{
 	"id": "Flirrendes Premium-Artefaktfragment",
     "name": "Flirrendes Premium-Artefaktfragment",
@@ -231,7 +231,7 @@ const materials_arch_JSON = [{
 	"fixPrice": false,
 	"level": 11,
 	"picture": "Crystal_Scrap_6_0_blue.png",
-	"places": ["Ondern", "Mek-Sha", "HW-Archäologie", "Jawa-Händer"]
+	"places": ["HW-Schatzsuche", "Jawa-Händer"]
 },{
 	"id": "Flirrendes Prototyp-Artefaktfragment",
     "name": "Flirrendes Prototyp-Artefaktfragment",
@@ -258,7 +258,7 @@ const materials_arch_JSON = [{
 	"fixPrice": false,
 	"level": 11,
 	"picture": "Crystal_Scrap_6_0_purple.png",
-	"places": ["Ondern", "Mek-Sha", "HW-Archäologie", "Jawa-Händer"]
+	"places": ["HW-Schatzsuche", "Jawa-Händer"]
 },{
 	"id": "Flirrendes Artefakt-Artefaktfragment",
     "name": "Flirrendes Artefakt-Artefaktfragment",
