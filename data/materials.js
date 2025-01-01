@@ -281,7 +281,7 @@ const materialsJSON = [{
 },{
 	"id": "Feste Ressourcenmatrix",
     "name": "Feste Ressourcenmatrix",
-	"price": 500000,
+	"price": 650000,
 	"quality": QUALITY_ARTEFACT,
 	"fixPrice": false,
 	"level": 11,
@@ -290,12 +290,12 @@ const materialsJSON = [{
 },{
 	"id": "Legendäre Glut",
     "name": "Legendäre Glut",
-	"price": 300000,
+	"price": 370000,
 	"quality": QUALITY_ARTEFACT,
 	"fixPrice": false,
 	"level": 11,
     "picture": "Legendary_Scrap_6_0.png",
-	"places": ["Nitoo (Rep)",".... (Imp)", "Dekonstruktion (75er Gear)", "GHN", "Level 11 HW-Misionsendeckungen", "PVP-Weekly"]
+	"places": ["Nitoo (Rep)","Makanna (Imp)", "Dekonstruktion (75er Gear)", "GHN", "Level 11 HW-Misionsendeckungen", "PVP-Weekly"]
 },{
 	"id": "Standard-Rekombinator",
     "name": "Standard-Rekombinator",
@@ -682,7 +682,7 @@ const materialsJSON = [{
 	"fixPrice": false,
 	"level": 11,
 	"picture": "6_0_Batteries_green.png",
-	"places": ["GHN", "Nitoo (Rep)", ".... (Imp)"]
+	"places": ["GHN", "Nitoo (Rep)", "Makanna (Imp)"]
 },{
 	"id": "RPM-13",
     "name": "RPM-13",
@@ -691,7 +691,7 @@ const materialsJSON = [{
 	"fixPrice": false,
 	"level": 11,
 	"picture": "6_0_Batteries_red.png",
-	"places": ["GHN", "Nitoo (Rep)", ".... (Imp)"]
+	"places": ["GHN", "Nitoo (Rep)", "Makanna (Imp)"]
 },{
 	"id": "Korrumpierter Bioprozessor",
     "name": "Korrumpierter Bioprozessor",
